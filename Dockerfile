@@ -1,6 +1,7 @@
 FROM node:16-slim as node-builder
 
 COPY . ./app
+RUN npm --version
 RUN cd /app && npm run prod
 
 
