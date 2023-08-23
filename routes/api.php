@@ -21,4 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/register', [RegisterController::class, 'register']);//追記
 
-// Route::post('register', [RegisterController::class, 'register']);
+Route::post('/test', function () {
+    return 'test ok';
+});
