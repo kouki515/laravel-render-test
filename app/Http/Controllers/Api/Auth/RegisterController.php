@@ -13,20 +13,14 @@ class RegisterController extends Controller
 {
     use RegistersUsers;
 
-    public function register()
-    {
-        $this->validator(request()->all())->validate();
-        event(new Registered($user = $this->create(request()->all())));
-        $this->guard()->login($user);
-        return ['success' => true, 'user' => $user];
-    }
+    public function register(RegisterRequest $request) {
+        // User::create([
+        //     'name' =>  $request->name,
+        //     'email' => $request->email,
+        //     'password' => Hash::make($request->password),
+        // ]);
 
-    protected function create(array $data)
-    {
-        return User::create([
-            'name'  => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        // return response()->json(['created' => true], Response::HTTP_OK);
+        return 'hello world';
     }
 }

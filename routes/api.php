@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/signup', function () {
-    return 'hello api';
-});
+Route::post('/register', [RegisterController::class, 'register']);//追記
 
-Route::post('/register', [RegisterController::class, 'register']);
+// Route::post('register', [RegisterController::class, 'register']);
